@@ -2,6 +2,6 @@ import sys
 sys.path.append('/home/user/Bridgelabz')
 from Utility.utility import Poweroftwo
 
-#taking input & setting range
-n=input("enter the value upto 31 :")
+#taking user input & setting limit
+n= input("entre the value upto 31 :" )
 Poweroftwo(n)
