@@ -179,15 +179,23 @@ def Gambler(stake,goal,trails):
         #system generating random numbers
         if random.randint(0,1) < 0.5:
             stake = stake-1
-            loss = loss+1
+            loss_count = loss_count+1
         else:
             stake = stake+1
-            win = win+1
+            win_count = win_count+1
     #calculating percentage
-        percentage_win= (win/trails)*100
+        percentage_win= (win_count/trails)*100
         print(percentage_win)
-        percentage_loss= (loss/trails)*100
-        print(percentage_loss)                        
+        percentage_loss= (loss_count/trails)*100
+        print(percentage_loss)  
+
+#finding distinct coupon numbers
+def Couponnumber(a):
+    count=0
+    for i in range(0,len(a)+1):
+        if  random.randint(0,20) == a[i]:
+            count= count+1 
+            print(count)                            
      
 
 
