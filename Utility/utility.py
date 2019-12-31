@@ -3,6 +3,8 @@ import math
 import sys
 import numpy as num
 import array as arr
+import random
+#import time
 
 #checking Anagram
 
@@ -114,7 +116,82 @@ def Poweroftwo(n):
     for i in range(0,n+1):
         print("the power is ")
         #using python inbuilt function i.e. pow()
-        print( pow(2,i))                         
+        print( pow(2,i)) 
+
+#Harmonic series printing
+def Harmonic(n):
+    #taking initial harmonic sum as 1
+    hsum=1 
+    for i in range(2,n+1):
+        hsum = hsum + (1/i)
+        print(hsum) 
+
+#calculation of primefactors 
+
+def Primefactor(num):
+    #printing 2 as it`s  a prime number
+    while num % 2 == 0:
+        print(2)
+        num =num / 2
+        #now checking if every prime no. divided by num
+        # also printing no. 
+    for i in range (3,int(math.sqrt(num))+1 ,2):
+        while num % i == 0:
+            print(i)
+            num = num /i  
+    #for num after factorizing
+    if num > 2:
+        print(num)
+
+#calculating time elapseed in stopwatch
+def Stopwatch():
+    elapsed_time= start_time - end_time()
+    print(elapsed_time) 
+
+
+#flip coin problem
+
+def Flipcoin(a):
+    #initilising count variables
+    counthead=0
+    counttail=0
+for i in range (len(a)):
+    
+    if(a[i]> 0.5):
+        
+        counthead = counthead+1
+       
+    else :
+        counttail = counttail+1
+#calculate percentage and printing        
+percentage = (counthead / (len(a)))*100
+print(percentage) 
+percentage = (counttail / (len(a)))*100
+print(percentage)  
+
+
+#Gambler programme
+def Gambler(stake,goal,trails):
+    #initilising count variables
+    win_count=0
+    loss_count=0
+    if stake >= 0  or goal == stake:
+        #system generating random numbers
+        if random.randint(0,1) < 0.5:
+            stake = stake-1
+            loss = loss+1
+        else:
+            stake = stake+1
+            win = win+1
+    #calculating percentage
+        percentage_win= (win/trails)*100
+        print(percentage_win)
+        percentage_loss= (loss/trails)*100
+        print(percentage_loss)                        
+     
+
+
+
 
             
                
