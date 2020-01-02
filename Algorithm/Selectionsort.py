@@ -1,4 +1,9 @@
+import sys
+sys.path.append('/home/user/Bridgelabz')
+from Utility.utility import Selectionsort 
+   
 
+#taking array input
 arr=[3,6,7,2,9,5]  
 n= len(arr)
 #passing array and length as argument

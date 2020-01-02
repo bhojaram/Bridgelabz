@@ -133,8 +133,9 @@ def Primefactor(num):
     while num % 2 == 0:
         print(2)
         num =num / 2
-        #now checking if every prime no. divided by num
-        # also printing no. 
+    #now checking if every prime no. divided by num
+    # also printing no. 
+    #last argument is for stepping of 2
     for i in range (3,int(math.sqrt(num))+1 ,2):
         while num % i == 0:
             print(i)
@@ -155,19 +156,17 @@ def Flipcoin(a):
     #initilising count variables
     counthead=0
     counttail=0
-for i in range (len(a)):
+    for i in range (0,len(a)+1):
     
-    if(a[i]> 0.5):
-        
-        counthead = counthead+1
-       
-    else :
-        counttail = counttail+1
+        if(a[i]> 0.5):
+            counthead = counthead+1
+        else :
+            counttail = counttail+1
 #calculate percentage and printing        
-percentage = (counthead / (len(a)))*100
-print(percentage) 
-percentage = (counttail / (len(a)))*100
-print(percentage)  
+    percentage = (counthead / (len(a)))*100
+    print(percentage) 
+    percentage = (counttail / (len(a)))*100
+    print(percentage)  
 
 
 #Gambler programme
@@ -197,6 +196,26 @@ def Couponnumber(a):
             count= count+1 
             print(count)                            
      
+
+#finding leap year or mot
+
+def Leapyear(n):
+    #logic for leap year
+    if ( n % 4 == 0 and  n %  100 != 0 or n % 400 == 0):
+        print("Leapyear")
+    else :
+        print ("Not leapyear")
+
+
+#finding triplets in an array
+# array of distinct element
+
+def Triplets(a):
+    for i in range(0,len(a)-2):
+        for j in range(i+1,len(a)-1):
+            for k in range(j+1,len(a)):
+                if a[i]+a[j]+a[k]== 0:
+                    print(a[i],a[j],a[k])          
 
 
 
