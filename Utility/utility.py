@@ -215,7 +215,16 @@ def Triplets(a):
         for j in range(i+1,len(a)-1):
             for k in range(j+1,len(a)):
                 if a[i]+a[j]+a[k]== 0:
-                    print(a[i],a[j],a[k])          
+                    print(a[i],a[j],a[k]) 
+
+
+#calculating distane of a point from origin
+#x1,x2 is origin & y1,y2 be any point
+def Distance (x1,x2,y1,y2):
+     d= math.sqrt(math.pow(x2 - x1, 2) +
+                math.pow(y2 - y1, 2) * 1.0)
+     print("the distance is :", d)            
+                              
 
 
 
