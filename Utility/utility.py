@@ -78,15 +78,16 @@ def permute(s, l, h):
 
 #Prime no. range in 0-1000  
 def Primecount(l,h):
-    for l in range(0,h+1):
+    for l in range(2,h+1):
         for i in range(2,h):
             if l % i==0:
                 #checking of factors of l  
                 if l==i:
-                    print("Not prime")
+                   print(l)
                 else:
-                    print(l)
-
+                    break
+            else:
+                print("not prime")
 #finding a no. using binary sort
 def Binarysearch(a,l,h):
     #for one element i.e. terminating condition
@@ -145,7 +146,7 @@ def Primefactor(num):
         print(num)
 
 #calculating time elapseed in stopwatch
-def Stopwatch():
+def Stopwatch(start_time,end_time):
     elapsed_time= start_time - end_time()
     print(elapsed_time) 
 
@@ -223,9 +224,209 @@ def Triplets(a):
 def Distance (x1,x2,y1,y2):
      d= math.sqrt(math.pow(x2 - x1, 2) +
                 math.pow(y2 - y1, 2) * 1.0)
-     print("the distance is :", d)            
-                              
+     print("the distance is :", d)
 
+
+#findingPrime no. range in 0-1000 
+#and showing palendrome or not 
+def Palendromerange(l,h):
+    for l in range(0,h+1):
+        for i in range(2,h):
+            if l % i==0:
+                #checking of factors of l  
+                if l==i:
+                    print("Not prime")
+                else:
+                    print(l)
+                    #reversing the number
+                    while l > 0:
+                        rev = 0
+                        rem = l%10
+                        rev =rev*10+rem
+                        l   =l/10
+                        #comparing reverse and prime number
+                        if l == rev:
+                            print("The prime no. is Palendrome")
+                        else:
+                            print("The prime no. is not Palemdrome")
+#mergesort program
+def mergesort(arr,low,high):
+    if low < high:
+        mid = int((low+high) /2)
+        mergesort(arr,low,mid)
+        mergesort(arr,mid+1,high)
+        i=low
+        j=mid+1
+        k=high
+        b =arr.array('i', [])
+        while i<=mid and j<=high:
+            if arr[i] <= arr[j]:
+                b[k]=arr[i]
+                i +=1
+            else:
+                b[k]=arr[j]
+                j +=1
+            k +=1 
+        while i < mid:
+            b[k]=arr[i] 
+            k +=1
+            i +=1                                     
+        while j < high:
+            b[k]=arr[j]
+            k +=1
+            j +=1
+                              
+#linkedlist program
+class node:
+    def __init__(self,data=None):
+        self.data = data
+        self.next = None
+class linked_list:
+    def __init__(self):
+        self.head = None
+    def printlist(self):
+        temp=self.head
+        while(temp != None):
+            print(temp.data)
+            temp = temp.next
+     #appending item/data to linkedlist       
+    def append(self,data):
+        newnode = node(data) 
+          
+        if self.head is None: 
+            self.head = newnode 
+            return
+        temp = self.head 
+        while temp.next is not None: 
+            temp = temp.next
+              
+        temp.next = newnode 
+    #adding new item in linkedlist    
+    def add(self,item):
+        newnode = node(item)
+        temp=self.head
+        while temp.next != None:
+            temp = temp.next
+        temp.next = newnode    
+    #searching for item    
+    def search(self,item):
+        temp = self.head 
+        while temp != None:
+            if temp.data == item:
+                print("item is present")
+                break
+            temp = temp.next
+        return  
+    #calculating size of linkedlist    
+    def sizelist(self):
+        temp = self.head
+        sizeoflist = 0
+        while temp != None:
+            sizeoflist += 1
+            temp=temp.next
+        #print("size is :",sizeoflist)
+    #checking emptiness of linkedlist    
+    def isEmpty(self):
+        if self.head == None:
+            print("List is empty")
+        return
+    #returning index of item    
+    def index(self,item):
+        temp = self.head 
+        pos = 0  
+        while temp != None:
+            if temp.data == item:
+                pos += 1
+            temp = temp.next
+            pos += 1
+    #delet the last node          
+    def pop_last(self):
+        temp = self.head
+        if temp.next == None:
+            return temp.data
+            temp = None
+            self.head = None
+    #delet at a given position        
+    def pop(self,pos):
+        temp = self.head
+        length = self.sizelist(self)
+        if pos <= 0 or pos > length:
+            print("invalid position")
+        elif pos == 1:
+            if temp.next == None:
+                temp = None
+                self.head = None
+            else:
+                self.head = self.head.next
+                temp.next = None
+        elif pos == length:
+            Temp = None
+            while temp.next != None:
+                Temp = temp
+                temp = temp.next
+            Temp.next = None
+            temp = None
+        else:
+            Temp = None
+            k = 1
+            while k < pos:
+                k += 1
+                Temp = temp
+                temp = temp.next
+            Temp.next = temp.next
+            temp.next = None
+    def remove(self,item): 
+            temp = self.head
+            Temp = None
+            while temp.data != item:
+                Temp = temp
+                temp = temp.next
+            Temp.next = temp.next
+            temp.next = None
+    #insertation at given position            
+    def insert(self,pos,item):
+        newnode = node(item)
+        temp = self.head
+        length = self.sizelist()
+        #checking for invalid position
+        if pos <= 0 or pos > length + 1:
+            print("invalid position")
+        #insertation at beginning    
+        elif pos == 1:
+            if self.head == None:
+                self.head = newnode
+                length += 1
+            else:
+                newnode.next = self.head
+                self.head = newnode
+        #insertation at last        
+        elif pos == length + 1:
+            while temp.next != None:
+                temp = temp.next
+            temp.next = newnode
+            length += 1
+        #insertation at random positioion    
+        else:
+            k = 1
+            while k < pos-1:
+                k += 1
+                temp = temp.next
+                
+            newnode.next = temp.next
+            temp.next = newnode
+            length += 1
+        
+    def add(self,item):
+        temp = self.head
+        newnode = node(item)
+        if temp == None:
+            temp = newnode
+        while temp.next == None:
+            temp.next = newnode
+        return        
+    def convert(lst): 
+        return (lst.split())     
+        
 
 
 
