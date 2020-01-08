@@ -275,8 +275,9 @@ def mergesort(arr,low,high):
             b[k]=arr[j]
             k +=1
             j +=1
-                              
-#linkedlist program
+ 
+        
+#orderlist program
 class node:
     def __init__(self,data=None):
         self.data = data
@@ -284,15 +285,17 @@ class node:
 class linked_list:
     def __init__(self):
         self.head = None
+    #printing the linkedlist    
     def printlist(self):
-        temp=self.head
-        while(temp != None):
+        temp = self.head
+        #traversing till the end of list
+        while temp != None:
             print(temp.data)
             temp = temp.next
-     #appending item/data to linkedlist       
+    #appending nodes to linkedlist
     def append(self,data):
         newnode = node(data) 
-          
+        #checking for blank list  
         if self.head is None: 
             self.head = newnode 
             return
@@ -300,56 +303,28 @@ class linked_list:
         while temp.next is not None: 
             temp = temp.next
               
-        temp.next = newnode 
-    #adding new item in linkedlist    
-    def add(self,item):
-        newnode = node(item)
-        temp=self.head
-        while temp.next != None:
-            temp = temp.next
-        temp.next = newnode    
-    #searching for item    
-    def search(self,item):
-        temp = self.head 
-        while temp != None:
-            if temp.data == item:
-                print("item is present")
-                break
-            temp = temp.next
-        return  
-    #calculating size of linkedlist    
+        temp.next = newnode
+    #returning size of list     
     def sizelist(self):
         temp = self.head
         sizeoflist = 0
         while temp != None:
             sizeoflist += 1
-            temp=temp.next
-        #print("size is :",sizeoflist)
-    #checking emptiness of linkedlist    
-    def isEmpty(self):
-        if self.head == None:
-            print("List is empty")
-        return
-    #returning index of item    
-    def index(self,item):
-        temp = self.head 
-        pos = 0  
-        while temp != None:
-            if temp.data == item:
-                pos += 1
             temp = temp.next
-            pos += 1
-    #delet the last node          
+        #print("size is :",sizeoflist)  
+        return sizeoflist
+    #checking for single node    
+    #and delet the that node
     def pop_last(self):
         temp = self.head
         if temp.next == None:
             return temp.data
             temp = None
             self.head = None
-    #delet at a given position        
+    #delet element at given position        
     def pop(self,pos):
         temp = self.head
-        length = self.sizelist(self)
+        length = self.sizelist()
         if pos <= 0 or pos > length:
             print("invalid position")
         elif pos == 1:
@@ -359,6 +334,8 @@ class linked_list:
             else:
                 self.head = self.head.next
                 temp.next = None
+                
+        #deleting the last node    
         elif pos == length:
             Temp = None
             while temp.next != None:
@@ -367,31 +344,37 @@ class linked_list:
             Temp.next = None
             temp = None
         else:
+            #k is variable assign 1
+            #which help Temp to point precceding node
             Temp = None
-            k = 1
+            k = 1  
             while k < pos:
                 k += 1
                 Temp = temp
                 temp = temp.next
             Temp.next = temp.next
             temp.next = None
+    #deleting a particular item        
     def remove(self,item): 
             temp = self.head
             Temp = None
+            #searching for item
             while temp.data != item:
                 Temp = temp
                 temp = temp.next
+            #removing item and making reference    
             Temp.next = temp.next
             temp.next = None
-    #insertation at given position            
+    #inserting item at given position        
     def insert(self,pos,item):
         newnode = node(item)
         temp = self.head
+        #calling sizelist method
         length = self.sizelist()
-        #checking for invalid position
-        if pos <= 0 or pos > length + 1:
+        if pos <= 0 or pos > length+1:
             print("invalid position")
-        #insertation at beginning    
+        #inserting at first position 
+        #and incresing length    
         elif pos == 1:
             if self.head == None:
                 self.head = newnode
@@ -399,13 +382,13 @@ class linked_list:
             else:
                 newnode.next = self.head
                 self.head = newnode
-        #insertation at last        
-        elif pos == length + 1:
+        #inserting after last node        
+        elif pos == length+1:
             while temp.next != None:
                 temp = temp.next
             temp.next = newnode
             length += 1
-        #insertation at random positioion    
+        #inserting in particular position    
         else:
             k = 1
             while k < pos-1:
@@ -415,7 +398,27 @@ class linked_list:
             newnode.next = temp.next
             temp.next = newnode
             length += 1
-        
+    def sort(self,item):
+        #checking item present or not
+        #then remove it
+        temp = self.head
+        newnode = node(item)
+        if temp.data == item:
+            self.remove(item)
+        temp = temp.next    
+        #if item not present 
+        #placing in apporiate position   
+        while temp != None:
+            temp = self.head
+            Temp = None
+            if temp.data > newnode.data:
+                    Temp = temp 
+                    temp = temp.next
+            newnode.next = Temp.next
+            Temp.next = newnode
+                    
+        return        
+    
     def add(self,item):
         temp = self.head
         newnode = node(item)
@@ -427,9 +430,20 @@ class linked_list:
     def convert(lst): 
         return (lst.split())     
         
-
-
-
-            
+    #returning index of item    
+    def index(self,item):
+        temp = self.head 
+        pos = 0  
+        while temp != None:
+            if temp.data == item:
+                pos += 1
+            temp = temp.next
+            pos += 1
+    #checking for emptyness of list        
+    def isEmpty(self):
+        if self.head == None:
+            print("List is empty")
+        return
+           
                
                  
