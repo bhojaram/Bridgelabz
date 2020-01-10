@@ -444,6 +444,165 @@ class linked_list:
         if self.head == None:
             print("List is empty")
         return
-           
-               
-                 
+#balacing parenthesis
+class stack_node :
+    #creating stack nodes
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        
+class stack :
+    #creating empty stack with zero
+    def __init__(self):
+        self.top = None
+        self.size = 0
+    def len_stack(self):
+        return self.size
+        #print( "self.size")
+    #checking for empty stack    
+    def isEmpty(self):
+        if self.top == None:
+            print("stack empty")
+            return
+    #pushing item into stack        
+    def push(self,data):
+        newnode = stack_node(data)
+        if self.top == None :
+            self.top = newnode
+        newnode.next = self.top 
+        self.top = newnode
+        self.size += 1
+        return self.size
+    #delet top element from stack    
+    def pop(self):
+        #pop not possible if stack is empty
+        if self.isEmpty :
+            print("pop not possible")
+        item = self.top.data
+        self.top = self.top.next 
+        self.size -= 1
+        return
+    def peek(self):
+        item = self.top.data
+        print(item)
+        return 
+#Bank_cash_counter program
+class queue_node :
+    #a linkedlist of nodes
+    #to create nodes for queue
+    def __init__ (self,data):
+        self.data = data
+        self.next = None
+#Q class created, head refers first element
+# tail refers last element        
+class queue :
+    def __init__ (self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+    #returning size of Queue    
+    def q_size(self):
+        return self.size
+    #checking for empty of queue    
+    def q_isEmpty(self):
+        if self.head == None :
+            return
+    #inserting data & creating node        
+    def enqueue(self,data):
+        newnode = queue_node(data)
+        if self.tail == None :
+            #for first insertation ..
+            #head,tail should refer to newnode
+            self.head = newnode
+            self.tail = newnode
+        self.tail.next = newnode
+        self.size += 1 
+    #deleting checking for head                     
+    def dequeue(self):
+        if self.head == None :
+            print("dequeue not possible")
+        newnode = self.head 
+        #checking for single item & delet   
+        if self.head == self.tail :
+            self.head = None
+            self.tail= None
+        #delet node & head points to next node        
+        self.head = newnode.next
+        self.size -= 1    
+        return head.data                   
+#palindrome_checker               
+class dqueue_node :
+    #a linkedlist of nodes
+    #to create nodes for queue
+    def __init__ (self,data):
+        self.data = data
+        self.next = None
+#dQ class created, head refers first element
+# tail refers last element        
+class dqueue :
+    def __init__ (self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+    #returning size of dQueue    
+    def d_size(self):
+        return self.size
+    #checking for empty of queue    
+    def d_isEmpty(self):
+        if self.head == None :
+            return
+    #creating list of nodes
+    #i.e charcter by charcter        
+    def stringToListNode(str1):
+    for i in str1:
+        newnode = dqueue_node(i)        
+    #inserting data & creating node
+    #from head/front end       
+    def add_head(self,data):
+        newnode = dqueue_node(data)
+        if self.head == None :
+            #for first insertation ..
+            #head,tail should refer to newnode
+            self.head = newnode
+        #creating node & shifting head to back    
+        newnode.next = self.head
+        newnode = self.head
+        self.size += 1 
+    #creating node from tail/rear end    
+    def add_tail(self,data): 
+        newnode = dqueue_node(data)
+        if self.tail == None :
+            self.tail = newnode
+        #adding node to next of tail     
+        self.tail.next = newnode 
+        self.size += 1
+    #deleting checking for head                     
+    def remove_head(self):
+        if self.head == None :
+            print("dequeue not possible")
+        newnode = self.head 
+        #checking for single item & delet   
+        if self.head == self.tail :
+            self.head = None
+        #delet node & head points to next node        
+        newnode.next = self.head
+        self.size -= 1    
+        return head.data 
+     def remove_tail(self):
+        if self.tail == None :
+            print("dequeue not possible")
+        newnode = self.tail
+        temp = self.head 
+        #checking for single item & delet   
+        if self.head == self.tail :
+            self.tail= None
+        #traverse till end of list
+        #making reference to previous of last node  
+        while temp != None :
+            Temp = temp
+            temp = temp.next
+        Temp = self.tail           
+        Temp = temp = None 
+        self.size -= 1    
+        return tail.data                   
+                                                      
