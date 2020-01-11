@@ -38,6 +38,17 @@ def Bubblesort(arr, n):
 
 #Insertationsort
 
+
+class LinkedList:
+
+    def __init__(self):
+        self.head = None
+
+    def add(self, data):
+        temp = self.head
+        self.head = Node(data)
+        self.head.next = temp
+
 def Insertationsort(a):
     for i in range (0,len(a)-1):
         min = a[i+1]
@@ -78,16 +89,17 @@ def permute(s, l, h):
 
 #Prime no. range in 0-1000  
 def Primecount(l,h):
-    for l in range(2,h+1):
-        for i in range(2,h):
-            if l % i==0:
+    for val in range(0,h+1):
+        if val > 1 :
+            for i in range(2,val):
+            if val % i==0:
                 #checking of factors of l  
-                if l==i:
-                   print(l)
-                else:
-                    break
-            else:
-                print("not prime")
+                break
+            else :
+                print(val)
+                    
+            
+                
 #finding a no. using binary sort
 def Binarysearch(a,l,h):
     #for one element i.e. terminating condition
@@ -605,4 +617,90 @@ class dqueue :
         Temp = temp = None 
         self.size -= 1    
         return tail.data                   
-                                                      
+#binary_search tree implementation
+class node:
+    def __init__(self,data) :
+        #taking 2 pointers for bst
+        #left of root & right of root
+        self.data = data
+        self.left_child = None
+        self.right_child = None
+class binary_search_tree :
+        def __init__(self) :
+            #initilising root as null
+            self.root = None   
+        def add(self,data) :
+            #inserting new node to root
+            newnode = node(data) 
+            if self.root == None :
+                self.root = newnode
+            else :
+                #if root already present calling method
+                self.insert(self,newnode) 
+        def insert(self,data,newnode) :
+            #comparing root and newnode
+            # if samller,place  at left child            
+            if self.root.data < newnode.data :
+                if self.left_child == None :
+                   self.left_child = newnode
+                else :
+                   #if left child already present
+                   #calling insert method
+                   self.left_child.insert(newnode)
+            return       
+            else :
+               #if bigger,place at right side 
+               if self.root.data > newnode.data :
+                  if self.left_right == None :
+                    self.left_right = newnode
+                  else :
+                    #calling insert method  
+                    self.right_child.insert(newnode)
+                return    
+        def print_tree(self) :
+            #printing left sub_tree
+            if self.left_child :
+                self.print_tree()
+            print self.data
+            #printing right sub_tree
+            if self.right_child :
+                self.print_tree()
+            print self.data                     
+#finding prime numbers in range
+#then storing in 2D array
+def primeStore2D(l,h):
+    k = []
+    for val in range(0,h+1):
+        if val > 1 :
+            for i in range(2,val):
+            if val % i==0:
+                #checking of factors of l  
+                break
+            else :
+                lst.append(val)
+    for j in range(0,len(lst),100) :
+        k.append(lst[j:100+j])           
+    print(lst)
+    print(k)
+#finding prime no. that are Anagram
+#& storing in 2D array
+    
+def primeAnagramStore2D(l,h):
+    k = []
+    for val in range(l,h+1):
+        if val > 1:
+            for i in range(2,val):
+                if val % i==0: 
+                    break
+            else:
+                k.append(val)
+                
+    primeAnagram(k)
+def primeAnagram(prime_list):
+    primeAangramList = []
+    for m in prime_list:
+        for n in prime_list:
+            if (m != n) and (sorted(str(m)) == sorted(str(n))):
+                primeAnagramList.append(m)
+    print(primeAnagramList)    
+                   
