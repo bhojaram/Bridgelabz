@@ -263,32 +263,44 @@ def Palendromerange(l,h):
                             print("The prime no. is not Palemdrome")
 #mergesort program
 def mergesort(arr,low,high):
+    #setting terminating condition
     if low < high:
         mid = int((low+high) /2)
+        #dividing arr in 2 parts
+        #and calling  
         mergesort(arr,low,mid)
         mergesort(arr,mid+1,high)
-        i=low
-        j=mid+1
-        k=high
-        b =arr.array('i', [])
-        while i<=mid and j<=high:
+        i = low
+        j = mid+1
+        k = high
+        #taking auxilary arr to store
+        #sorted elements
+        b = arr.array('i', [])
+        while i <= mid and j <= high:
+            #comparing both array elements
+            #and storing in auxilary array
             if arr[i] <= arr[j]:
-                b[k]=arr[i]
-                i +=1
+                b[k] = arr[i]
+                i += 1
             else:
-                b[k]=arr[j]
-                j +=1
-            k +=1 
+                b[k] = arr[j]
+                j += 1
+            k += 1 
         while i < mid:
-            b[k]=arr[i] 
-            k +=1
-            i +=1                                     
+            #if any item left in 1st sub arr
+            #then simply copy to arr b
+            b[k] = arr[i] 
+            k += 1
+            i += 1                                     
         while j < high:
-            b[k]=arr[j]
-            k +=1
-            j +=1
+            #coping items to arr b
+            b[k] = arr[j]
+            k += 1
+            j += 1
+#returning array b            
+for i in range(len(b[k])+1) :
+    print(b[k])            
  
-        
 #orderlist program
 class node:
     def __init__(self,data=None):
@@ -424,18 +436,21 @@ class linked_list:
             temp = self.head
             Temp = None
             if temp.data > newnode.data:
-                    Temp = temp 
-                    temp = temp.next
+                #creating another reference
+                Temp = temp 
+                temp = temp.next
             newnode.next = Temp.next
             Temp.next = newnode
                     
         return        
-    
+    #adding item
     def add(self,item):
         temp = self.head
         newnode = node(item)
+        #checking for null of temp
         if temp == None:
             temp = newnode
+        #adding node after 1st node    
         while temp.next == None:
             temp.next = newnode
         return        
@@ -670,37 +685,43 @@ class binary_search_tree :
 #then storing in 2D array
 def primeStore2D(l,h):
     k = []
+    #finding prime no.
     for val in range(0,h+1):
         if val > 1 :
             for i in range(2,val):
-            if val % i==0:
-                #checking of factors of l  
+            if val % i==0 :  
                 break
             else :
+                #appending val in list
                 lst.append(val)
     for j in range(0,len(lst),100) :
+        #storing prime in range 0-100
+        #using array
         k.append(lst[j:100+j])           
     print(lst)
     print(k)
 #finding prime no. that are Anagram
 #& storing in 2D array
-    
 def primeAnagramStore2D(l,h):
     k = []
+    #finding prime no.
     for val in range(l,h+1):
         if val > 1:
             for i in range(2,val):
                 if val % i==0: 
                     break
             else:
+                #storing in list k
                 k.append(val)
-                
+    #calling function            
     primeAnagram(k)
 def primeAnagram(prime_list):
     primeAangramList = []
     for m in prime_list:
         for n in prime_list:
+            #taking prime no and
+            #comparing with same list
             if (m != n) and (sorted(str(m)) == sorted(str(n))):
                 primeAnagramList.append(m)
-    print(primeAnagramList)    
+    print(primeAnagramList)   
                    
