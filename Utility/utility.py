@@ -564,6 +564,9 @@ class dqueue_node :
     def __init__ (self,data):
         self.data = data
         self.next = None
+class linked_list :
+    def __init__(self) :
+        self.head = None         
 #dQ class created, head refers first element
 # tail refers last element        
 class dqueue :
@@ -581,8 +584,8 @@ class dqueue :
     #creating list of nodes
     #i.e charcter by charcter        
     def stringToListNode(str1):
-    for i in str1:
-        newnode = dqueue_node(i)        
+        for i in str1:
+            newnode = dqueue_node(i)        
     #inserting data & creating node
     #from head/front end       
     def add_head(self,data):
@@ -723,5 +726,5 @@ def primeAnagram(prime_list):
             #comparing with same list
             if (m != n) and (sorted(str(m)) == sorted(str(n))):
                 primeAnagramList.append(m)
-    print(primeAnagramList)   
+    return  primrAnagramList 
                    
