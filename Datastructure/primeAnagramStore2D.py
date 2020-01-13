@@ -5,4 +5,5 @@ from Utility.utility import primeAnagramStore2D
 if __name__=='__main__':
     l=2
     h=1000
-    primeAnagramStore2D(l,h)
+    p = primeAnagramStore2D(l,h)
+    print(p)
