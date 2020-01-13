@@ -5,5 +5,4 @@ from Utility.utility import primeStore2D
 if __name__=='__main__':
 l=2
 h=1000
-lst = []
 primeStore2D(l,h)
