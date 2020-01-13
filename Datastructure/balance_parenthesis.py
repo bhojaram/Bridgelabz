@@ -8,6 +8,6 @@ if __name__=='__main__':
         if i == '(':
             s.push(i)   
         elif i == ')':
-            s.pop(i)
+            s.pop()
     if s.isEmpty == True:
         print("expression is balanced")
