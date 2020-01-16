@@ -1,0 +1,32 @@
+[ 
+    { 
+        "first_name":"ram",
+        "last_name":"roy",
+        "address":"rajiv nagar","city":"delhi",
+        "state":"odisha","zip": 768226,
+        "phone": 8895863354
+    },
+    { 
+        "first_name":"raj",
+        "last_name":"poi",
+        "address":"shyam nagar","city":"bbsr",
+        "state":"goa","zip": 768219,
+        "phone": 8956235742
+    },
+    { 
+        "first_name":"sid",
+        "last_name":"sharma",
+        "address":"hsr layout","city":"patna",
+        "state":"bihar","zip": 768001,
+        "phone": 9938565524
+    },
+    { 
+        "first_name":"aditya",
+        "last_name":"verma",
+        "address":"sastri nagar","city":"trishoor",
+        "state":"kerla","zip": 768519,
+        "phone": 7735642230
+    }
+
+
+]
