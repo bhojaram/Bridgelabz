@@ -1,0 +1,41 @@
+{
+    "patient":
+    [
+        {
+            "name":"amar", 
+            "id":200,"add":"delhi",
+            "phone":8899586235,
+            "gender":"male"
+        },
+        {
+            "name":"pooja", 
+            "id":201,"add":"patna",
+            "phone":9635864582,
+            "gender":"female"
+        },
+        {
+            "name":"deepika", 
+            "id":203,"add":"bhilia",
+            "phone":8899586865,
+            "gender":"female"
+        }
+    ],
+"doctor":
+[
+    
+    {
+  
+        "name":"roy", 
+        "id":201,"avaliable":"10pm",
+        "phone":9635864582,
+        "specilization":"neurologist"
+    },
+    {
+  
+            "name":"asthana", 
+            "id":201,"avaliable":"9am",
+            "phone":8856464582,
+            "specilization":"cardiologist"
+    }
+]
+}        
