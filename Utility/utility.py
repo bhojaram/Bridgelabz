@@ -225,6 +225,37 @@ def Distance (x1,x2,y1,y2):
                 math.pow(y2 - y1, 2) * 1.0)
      print("the distance is :", d)            
                               
+#hashing using linkedlist
+class hash_node :
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+class linked_list:
+    def __init__(self):
+        self.head = None
+
+    def add(self,item):
+        temp = self.head
+        newnode = node(item)
+        #checking for null of temp
+        if temp == None:
+            temp = newnode
+        #adding node after 1st node    
+        while temp.next == None:
+            temp.next = newnode
+        return  
+    #if item not found then add
+    #and if present then remove item
+    def remove(self,item): 
+            temp = self.head
+            Temp = None
+            #searching for item
+            while temp.data != item:
+                Temp = temp
+                temp = temp.next
+            #removing item and making reference    
+            Temp.next = temp.next
+            temp.next = None 
 
 
 
